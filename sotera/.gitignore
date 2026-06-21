@@ -1,3 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+.nomedia
+
+# System and IDE overrides
+.DS_Store
