@@ -1,3 +1,40 @@
 [gd_scene format=3 uid="uid://bkuwogcw7x8x1"]
 
+[ext_resource type="PackedScene" uid="uid://b830mwodbpleq" path="res://assets/prefabs/player.tscn" id="1_62l1t"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_owkrm"]
+distance = 1.9999924
+
 [node name="ScaryMaze" type="Node2D" unique_id=1149450057]
+
+[node name="worldboundary" type="Node2D" parent="." unique_id=638251911]
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="worldboundary" unique_id=1649787983]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worldboundary/StaticBody2D4" unique_id=2074031186]
+position = Vector2(887, 1128)
+shape = SubResource("WorldBoundaryShape2D_owkrm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="worldboundary" unique_id=1954927351]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worldboundary/StaticBody2D" unique_id=389266396]
+position = Vector2(-91, 508)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_owkrm")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="worldboundary" unique_id=1031364664]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worldboundary/StaticBody2D3" unique_id=452126651]
+position = Vector2(1968, 467)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_owkrm")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="worldboundary" unique_id=1821123635]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worldboundary/StaticBody2D2" unique_id=233518552]
+position = Vector2(843, -38)
+rotation = -3.1415925
+shape = SubResource("WorldBoundaryShape2D_owkrm")
+
+[node name="Player" parent="." unique_id=1229557920 instance=ExtResource("1_62l1t")]
+position = Vector2(725, 382)
