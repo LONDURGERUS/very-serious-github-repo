@@ -66,4 +66,4 @@ There's no exact timeline because things may take longer or shorter and thats ok
 
 - Lock down. No new features. Just make it work better.
   - Focus on stability & bugfixes.
-- Keep updating the build with safe patches
+- Keep updating the build with safe patches.
