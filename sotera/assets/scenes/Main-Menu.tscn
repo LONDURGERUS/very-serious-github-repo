@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://7qye6c2bonxj"]
 
 [ext_resource type="Script" uid="uid://dm7nq7enxse37" path="res://assets/scenes/main_menu.gd" id="1_c4jbt"]
-[ext_resource type="Texture2D" uid="uid://blfbq8ov06026" path="res://assets/images/Screenshot_2026-06-20_141033.png" id="2_sphea"]
 [ext_resource type="Texture2D" uid="uid://b7ad5c10abtfo" path="res://assets/images/play-button.png" id="3_sphea"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0e6r5"]
 
 [node name="MainMenu" type="Control" unique_id=408829072]
 layout_mode = 3
@@ -12,6 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_c4jbt")
+target_scene = "res://assets/scenes/WheelSpinArea.tscn"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1050430835]
 layout_mode = 1
@@ -20,7 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_sphea")
+texture = SubResource("CanvasTexture_0e6r5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1855610059]
 layout_mode = 1

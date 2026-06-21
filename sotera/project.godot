@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Sotera"
-run/main_scene="uid://hubowr5basua"
+run/main_scene="uid://7qye6c2bonxj"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
