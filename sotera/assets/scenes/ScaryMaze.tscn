@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://bkuwogcw7x8x1"]
 
 [ext_resource type="PackedScene" uid="uid://b830mwodbpleq" path="res://assets/prefabs/player.tscn" id="1_62l1t"]
+[ext_resource type="PackedScene" uid="uid://1r4ydw3tyo5s" path="res://assets/scenes/scary_maze_lv_1.tscn" id="1_owkrm"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_owkrm"]
 distance = 1.9999924
 
 [node name="ScaryMaze" type="Node2D" unique_id=1149450057]
+
+[node name="ScaryMazeLv1" parent="." unique_id=631495778 instance=ExtResource("1_owkrm")]
 
 [node name="worldboundary" type="Node2D" parent="." unique_id=638251911]
 
@@ -37,4 +40,4 @@ rotation = -3.1415925
 shape = SubResource("WorldBoundaryShape2D_owkrm")
 
 [node name="Player" parent="." unique_id=1229557920 instance=ExtResource("1_62l1t")]
-position = Vector2(725, 382)
+position = Vector2(178, 199)
