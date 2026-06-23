@@ -82,7 +82,6 @@ scale = Vector2(5.972222, 5.972222)
 texture = ExtResource("7_4fco3")
 
 [node name="CRT" parent="." unique_id=719073563 instance=ExtResource("6_4arlo")]
-visible = false
 offset_left = -0.99993896
 offset_top = 1.000061
 offset_right = 1912.0002

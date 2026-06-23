@@ -23,41 +23,32 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.3019608, 0.3019608, 0.3019608, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1855610059]
+[node name="Play" type="TextureButton" parent="." unique_id=1303463535]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -288.0
+offset_top = -283.0
+offset_right = 279.0
+offset_bottom = 284.0
 grow_horizontal = 2
 grow_vertical = 2
+stretch_mode = 0
 
-[node name="Play" type="TextureButton" parent="VBoxContainer" unique_id=1303463535]
-layout_mode = 2
-texture_normal = ExtResource("3_sphea")
-
-[node name="VolumeSlider" type="HSlider" parent="VBoxContainer" unique_id=1020511068]
-layout_mode = 2
-max_value = 1.0
-step = 0.001
-value = 1.0
-
-[node name="Label" type="Label" parent="VBoxContainer/VolumeSlider" unique_id=1232109858]
+[node name="TextureRect" type="TextureRect" parent="Play" unique_id=1650264486]
 layout_mode = 0
-offset_left = 115.0
-offset_top = -28.0
-offset_right = 174.0
-offset_bottom = -5.0
-text = "Volume"
+offset_left = -561.0
+offset_top = -191.0
+offset_right = 1243.4445
+offset_bottom = 824.0
+mouse_filter = 2
+texture = ExtResource("3_sphea")
 
 [node name="CRT" parent="." unique_id=719073563 instance=ExtResource("3_0ntwq")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -69,5 +60,4 @@ offset_bottom = 1078.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="value_changed" from="VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
