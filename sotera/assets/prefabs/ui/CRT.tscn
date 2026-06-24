@@ -78,7 +78,9 @@ _data = {
 &"fade_to_black": SubResource("Animation_inkw7")
 }
 
-[node name="CRT" type="Control" unique_id=719073563]
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1167306919]
+
+[node name="CRT" type="Control" parent="." unique_id=719073563]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -88,7 +90,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_1cwdj")
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=1066554228]
+[node name="ColorRect2" type="ColorRect" parent="CRT" unique_id=1066554228]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -98,7 +100,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1725897799]
+[node name="ColorRect" type="ColorRect" parent="CRT" unique_id=1725897799]
 material = SubResource("ShaderMaterial_g4v7s")
 layout_mode = 1
 anchors_preset = 15
@@ -108,5 +110,5 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1764601310]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CRT" unique_id=1764601310]
 libraries/ = SubResource("AnimationLibrary_lucjw")

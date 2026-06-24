@@ -1,10 +1,23 @@
 [gd_scene format=3 uid="uid://ctimv56j7qqjo"]
 
 [ext_resource type="Script" uid="uid://cc53mm5im7qdg" path="res://src/scripts/lever.gd" id="1_wldyw"]
+[ext_resource type="Shader" uid="uid://bnhoyto3r8pxb" path="res://assets/shaders/aio_outline.gdshader" id="2_ic5fi"]
 [ext_resource type="Texture2D" uid="uid://dlx27g1p310r8" path="res://assets/raw/wheel-scene/lever.png" id="3_ic5fi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wldyw"]
 radius = 229.9793
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wquy7"]
+shader = ExtResource("2_ic5fi")
+shader_parameter/thickness = 0.0
+shader_parameter/ring_count = 8
+shader_parameter/ring_offset = 0.0
+shader_parameter/outline_color = Color(1, 1, 1, 0.5058824)
+shader_parameter/border_clipping_fix = true
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/square_border = true
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/max_or_add = false
 
 [node name="Lever" type="Node2D" unique_id=1796701312]
 script = ExtResource("1_wldyw")
@@ -17,6 +30,7 @@ scale = Vector2(0.5610386, 0.6345566)
 shape = SubResource("CircleShape2D_wldyw")
 
 [node name="Lever" type="Sprite2D" parent="." unique_id=1178572540]
+material = SubResource("ShaderMaterial_wquy7")
 position = Vector2(7.6293945e-06, 1)
 scale = Vector2(5.71875, 5.71875)
 texture = ExtResource("3_ic5fi")

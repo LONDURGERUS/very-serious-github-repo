@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://n3ucyq26j0qu" path="res://assets/raw/wheel-scene/stage.png" id="1_cooqm"]
 [ext_resource type="PackedScene" uid="uid://hubowr5basua" path="res://assets/prefabs/Wheel.tscn" id="2_4arlo"]
 [ext_resource type="PackedScene" uid="uid://b830mwodbpleq" path="res://assets/prefabs/player.tscn" id="3_cooqm"]
+[ext_resource type="PackedScene" uid="uid://m03c8gghqx32" path="res://assets/prefabs/Steven.tscn" id="4_4fco3"]
 [ext_resource type="Script" uid="uid://cee05bf1k1vhv" path="res://src/scripts/stage_exit_area.gd" id="5_8cy1c"]
 [ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="6_4arlo"]
 [ext_resource type="Texture2D" uid="uid://scsxnpxytqir" path="res://assets/raw/wheel-scene/curtains.png" id="7_4fco3"]
@@ -69,6 +70,9 @@ offset_left = -178.37512
 offset_top = -213.0564
 offset_right = 96.62488
 offset_bottom = -100.0564
+
+[node name="Steven" parent="stage-exit-area" unique_id=2100930359 instance=ExtResource("4_4fco3")]
+position = Vector2(-1364.3751, -202.0564)
 
 [node name="Lever" parent="." unique_id=1796701312 instance=ExtResource("7_cooqm")]
 position = Vector2(1462, 796)
