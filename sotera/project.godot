@@ -30,6 +30,10 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray()
 
+[gui]
+
+theme/custom_font="uid://cwbt4fgf27yh7"
+
 [input]
 
 up={

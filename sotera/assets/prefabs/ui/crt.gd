@@ -3,17 +3,18 @@ extends Control
 class_name CrtControl
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-#var crt_motion: CrtMotion
+var crt_motion: CrtMotion
 
 
 func _ready() -> void:
+	crt_motion = CrtMotion.new($ColorRect)
+	adjust_to_full_screen()
+	
 	Events.level_change_start.connect(fade_out)
 	Events.level_change_enter.connect(fade_in)
-	#adjust_to_full_screen()
-	#crt_motion = CrtMotion.new($ColorRect)
 	
-#func _process(delta: float) -> void:
-	#crt_motion.update(delta)
+func _process(delta: float) -> void:
+	crt_motion.update(delta)
 
 func fade_out() -> void:
 	# Fade to black
@@ -29,23 +30,23 @@ func fade_in() -> void:
 	await animation_player.animation_finished
 	print("fade in done")
 	
-#func adjust_to_full_screen() -> void:
-	#var full_screen_size: Vector2 = get_viewport_rect().size
-	#var zero: Vector2 = Vector2.ZERO
-	#
-	#position = zero
-	#$ColorRect.position = zero
-	#$ColorRect2.position = zero
-	#
-	#size = full_screen_size
-	#$ColorRect.size = full_screen_size
-	#$ColorRect2.size = full_screen_size
-	#
-#func start_darken(focus_origin: Vector2) -> void:
-	#crt_motion.start_darken(focus_origin)
-	#
-#func stop_darken() -> void:
-	#crt_motion.start_lighten()
-	#
-#func reset() -> void:
-	#crt_motion.reset()
+func adjust_to_full_screen() -> void:
+	var full_screen_size: Vector2 = get_viewport_rect().size
+	var zero: Vector2 = Vector2.ZERO
+	
+	position = zero
+	$ColorRect.position = zero
+	$ColorRect2.position = zero
+	
+	size = full_screen_size
+	$ColorRect.size = full_screen_size
+	$ColorRect2.size = full_screen_size
+	
+func start_darken(focus_origin: Vector2) -> void:
+	crt_motion.start_darken(focus_origin)
+	
+func stop_darken() -> void:
+	crt_motion.start_lighten()
+	
+func reset() -> void:
+	crt_motion.reset()
