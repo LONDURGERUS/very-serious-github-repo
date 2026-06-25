@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bxvm1qmxyc60c" path="res://src/scripts/BulletHellGame/BulletHellEnemySpawner.gd" id="2_k22da"]
 [ext_resource type="PackedScene" uid="uid://djlcsqi5rdk0t" path="res://assets/prefabs/BulletHellGame/BulletHellEnemy.tscn" id="3_1tnea"]
 [ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="4_g2uak"]
+[ext_resource type="PackedScene" uid="uid://bcnlbtdiicag" path="res://assets/prefabs/gui.tscn" id="4_sx2vv"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_u2d4l"]
 vertices = PackedVector2Array(660.0078, -342.6797, 669.8594, -383.77344, 739.53906, -351.3125, 727.89844, -297.28906, 635.52344, -215.0625, 591.75, -280.4375, 567.3281, -200.5, 644.4219, -129.4375, -392.77344, 397, -289.92188, -404.10938, -224.71094, -434.32813, -210.04688, -393.60938, -281.39063, -351.22656, -265.8672, -322.0078, -171.17188, -331.20313, -240.63281, -296.77344, -226.28125, -206.27344, -134.1875, -285.22656, -114.75781, -253.64844, 746.46875, -27.382813, 799, 102.953125, 799, 234.84375, 725.53125, 397.9922, -267.78125, -168.14063, 39.171875, -289, 278.82813, -289.9922, 452.92188, -248.4375, -465.0078, 250.61719, -465.97656, 95.97656, -409.46094, -38.5, -326.4375, -128.35938)
@@ -265,7 +266,11 @@ offset_top = 15.0
 offset_right = 65.0
 offset_bottom = 38.0
 
-[node name="CRT" parent="." unique_id=719073563 instance=ExtResource("4_g2uak")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1305034330]
+
+[node name="GUI" parent="CanvasLayer" unique_id=233616670 instance=ExtResource("4_sx2vv")]
+
+[node name="CRT" parent="CanvasLayer" unique_id=719073563 instance=ExtResource("4_g2uak")]
 
 [connection signal="timeout" from="EnemySpawner/SpawnCooldown" to="EnemySpawner" method="spawnEnemy"]
 [connection signal="timeout" from="EnemySpawner/WaveDelay" to="EnemySpawner" method="startWave"]
