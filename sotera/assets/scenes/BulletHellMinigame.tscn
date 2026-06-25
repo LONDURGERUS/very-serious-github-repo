@@ -103,7 +103,6 @@ distance = 8.898792
 [node name="BulletHellCharacter" parent="." unique_id=770224643 instance=ExtResource("1_mouw8")]
 position = Vector2(948, 563)
 floor_stop_on_slope = false
-speed = null
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2056125960]
 visible = false
@@ -117,7 +116,7 @@ texture = SubResource("CompressedTexture2D_mouw8")
 
 [node name="RightWall" type="StaticBody2D" parent="." unique_id=199206764 groups=["Background"]]
 position = Vector2(1647, 826)
-collision_layer = 3
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=2037296622]
 position = Vector2(6, 42)
@@ -150,7 +149,7 @@ shape = SubResource("CapsuleShape2D_p01b3")
 
 [node name="TopWall" type="StaticBody2D" parent="." unique_id=204843181 groups=["Background"]]
 position = Vector2(962, 320)
-collision_layer = 3
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall" unique_id=527326702]
 z_index = 3
@@ -180,7 +179,7 @@ shape = SubResource("CapsuleShape2D_fhbhm")
 
 [node name="LeftWall" type="StaticBody2D" parent="." unique_id=1494523258 groups=["Background"]]
 position = Vector2(291, 682)
-collision_layer = 3
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=873243595]
 position = Vector2(163, -219.99997)
@@ -223,7 +222,7 @@ shape = SubResource("CapsuleShape2D_ofd6b")
 
 [node name="BottomWall" type="StaticBody2D" parent="." unique_id=1329901519 groups=["Background"]]
 position = Vector2(920, 1102)
-collision_layer = 3
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall" unique_id=1745191436]
 position = Vector2(9, 2)
@@ -231,7 +230,7 @@ shape = SubResource("WorldBoundaryShape2D_u2d4l")
 
 [node name="LeftTent" type="StaticBody2D" parent="." unique_id=438669449 groups=["Background"]]
 position = Vector2(532, 272)
-collision_layer = 3
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftTent" unique_id=1583300910]
 position = Vector2(10, 13)
@@ -240,7 +239,7 @@ shape = SubResource("WorldBoundaryShape2D_n048l")
 
 [node name="RightTent" type="StaticBody2D" parent="." unique_id=269647920 groups=["Background"]]
 position = Vector2(1486, 311)
-collision_layer = 3
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightTent" unique_id=771856387]
 position = Vector2(3, 30)
@@ -253,7 +252,7 @@ enemyScene = ExtResource("3_1tnea")
 contractScene = ExtResource("4_i37ik")
 player = NodePath("../BulletHellCharacter")
 spawnerLocations = [NodePath("../LeftTent"), NodePath("../RightTent")]
-waves = Array[int]([3, 5])
+waves = Array[int]([3])
 
 [node name="SpawnCooldown" type="Timer" parent="EnemySpawner" unique_id=714988635]
 wait_time = 0.5

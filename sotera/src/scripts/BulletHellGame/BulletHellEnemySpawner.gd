@@ -27,7 +27,7 @@ func getNewEnemy()->BulletHellEnemy:
 
 func onEnemyKilled(enemy:BulletHellEnemy)->void:
 	enemiesKilled+=1
-	if enemiesKilled>=waves[currentWave]:
+	if enemiesKilled==waves[currentWave]:
 		currentWave+=1
 		if currentWave>=waves.size():
 			#drop contract
@@ -44,7 +44,7 @@ func startWave()->void:
 	$SpawnCooldown.start()
 
 func spawnEnemy()->void:
-	if enemiesSpawned <  waves[currentWave]:
+	if enemiesSpawned < waves[currentWave]:
 		var i = RandUtils.randi_range(0,spawnerLocations.size()-1)
 		var spawnPos = spawnerLocations[i].position
 		getNewEnemy().spawn(spawnPos,player)

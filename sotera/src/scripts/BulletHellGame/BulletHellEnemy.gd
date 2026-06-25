@@ -98,11 +98,12 @@ func isDisabled() -> bool:
 	return state == BHENEMYSTATE.DISABLED
 	
 func destroy()->void:
-	state = BHENEMYSTATE.DISABLED
-	emit_signal("enemyKilled",self)
-	position = spawnPos
-	
-	$Animations.hide()
+	if !isDisabled():
+		state = BHENEMYSTATE.DISABLED
+		emit_signal("enemyKilled",self)
+		position = spawnPos
+		
+		$Animations.hide()
 
 func _on_attack_hitbox_body_entered(body: Node2D) -> void:
 	if body is BulletHellCharacter:
@@ -118,7 +119,6 @@ func _on_attack_hitbox_body_exited(body: Node2D) -> void:
 			damagingPlayer = false
 			state = BHENEMYSTATE.MOVING
 		
-
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.get_parent():

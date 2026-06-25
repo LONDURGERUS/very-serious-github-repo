@@ -414,6 +414,8 @@ height = 90.0
 [node name="BulletHellCharacter" type="CharacterBody2D" unique_id=770224643 node_paths=PackedStringArray("gun")]
 z_index = 2
 y_sort_enabled = true
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_2bc3i")
 gun = NodePath("BulletHellGun")
 iFrames = 60
@@ -433,6 +435,8 @@ frame_progress = 0.16280946
 [node name="BulletHellGun" parent="." unique_id=554639469 instance=ExtResource("5_3fn2k")]
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=301136808]
+collision_layer = 2
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1102205982]
 position = Vector2(-2, -7)

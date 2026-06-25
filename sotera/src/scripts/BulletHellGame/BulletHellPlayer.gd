@@ -103,7 +103,11 @@ func takeDamage(damage:int) -> void:
 		
 	if hp <= 0:
 		#Minigame over
+
 		print("Player Dead")
 		SoundPool.play_sound(SoundPool.MINIGAME_FAIL)
-		takeDamage(0) #crashing the game on death for funsies	
+		# takeDamage(0) #crashing the game on death for funsies
+
+		Events.change_level("res://assets/scenes/FortuneWheelScene.tscn")
+
 	
