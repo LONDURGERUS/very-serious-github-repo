@@ -71,6 +71,7 @@ script = ExtResource("5_8cy1c")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stage-exit-area" unique_id=1553963211]
 position = Vector2(-837.1251, 198.1936)
 shape = SubResource("RectangleShape2D_3k25l")
+disabled = true
 
 [node name="DisplayControls" type="RichTextLabel" parent="stage-exit-area" unique_id=1089995010]
 offset_left = -178.37512
@@ -91,3 +92,5 @@ position = Vector2(1812, 814)
 position = Vector2(960.00006, 544)
 scale = Vector2(6, 6)
 texture = ExtResource("7_4fco3")
+
+[connection signal="lever_pulled" from="Lever" to="Wheel" method="_on_lever_lever_pulled"]
