@@ -24,6 +24,7 @@ func _ready() -> void:
 	num_of_questions = questions.size()
 	if num_of_questions == 0:
 		return
+	questions.shuffle()
 
 	option_a.grab_focus()
 	option_a.pressed.connect(_on_option_button_pressed.bind(Answers.A))
