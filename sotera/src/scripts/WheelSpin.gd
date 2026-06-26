@@ -1,10 +1,12 @@
 extends Node2D
 
+# to block visual pause menu pop glitch
+signal start_closing_curtains
+
 enum WheelState {
+	IDLE, # player is insdie Fortune Wheel Scene
 	SPINNING, # goes to WAIT_CURTAINS_TO_CLOSE
-	COMPLETE, # We'll allow spinning only once
-	IDLE,
-	WAIT_CURTAINS_TO_CLOSE
+	WAIT_CURTAINS_TO_CLOSE # goes back to IDLE & change scene to mini-game
 }
 
 var _state: WheelState = WheelState.IDLE;
@@ -21,7 +23,7 @@ var speed_multiplier: float = 0.0;
 var items: Array[String] = [
 	"maze", "bullet", "scary", "quiz", "story"
 ]
-var itemSceneMap: Dictionary[String, String] = {
+var itemSceneMap = {
 	"maze": "res://assets/scenes/StandardMaze.tscn",
 	"bullet": "res://assets/scenes/BulletHellMinigame.tscn",
 	"scary": "res://assets/scenes/ScaryMaze.tscn"
@@ -95,7 +97,7 @@ func check_if_curtains_are_closed() -> void:
 	SoundPool.play_sound(SoundPool.MINIGAME_SELECTED)
 	Events.change_level(itemSceneMap[str(items[value_idx])])
 	
-	_state = WheelState.COMPLETE
+	_state = WheelState.IDLE
 	
 func _stop() -> void:
 	var winning_game = items[value_idx]
@@ -103,11 +105,11 @@ func _stop() -> void:
 	if minigame_tracker:
 		minigame_tracker.add_minigame(winning_game)
 		
-	start_closing_curtains()	
+	_start_closing_curtains()	
 
 
 		
-func start_closing_curtains() -> void:
+func _start_closing_curtains() -> void:
 	# PROCEDURE:
 	# 1 ... start closing curtains
 	# 2 ... curtains == closed -> start_mini_game()
@@ -118,6 +120,8 @@ func start_closing_curtains() -> void:
 	effect1.start_slowdown()
 	effect2.start_slowdown()
 	curtains.close_full()
+	
+	start_closing_curtains.emit()
 	
 	SoundPool.stop_sound(SoundPool.AUDIENCE_CHEER, 5.0)
 
