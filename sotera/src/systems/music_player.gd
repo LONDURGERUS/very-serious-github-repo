@@ -6,8 +6,9 @@ const _MIN_VOLUME_DB : float = -60.0
 
 # Instantiate music file paths
 const MAIN_THEME : AudioStream = preload("res://assets/audio/music/ost/main theme.mp3")
-const INTRO : AudioStream = preload("res://assets/audio/music/ost/gameshow intro test.mp3")
-#
+const STAGE_MUSIC : AudioStream = preload("res://assets/audio/music/ost/gameshow intro test.mp3")
+const MINIGAME : AudioStream = preload("res://assets/audio/music/ost/very serious noodle.mp3")
+const SCARY : AudioStream = preload("res://assets/audio/music/ost/static_noise_loop.ogg")
 
 var _curr_idx : int = 0
 var _players : Array[AudioStreamPlayer]

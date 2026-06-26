@@ -14,12 +14,11 @@ extends Node2D
 
 var jumpscare_active: bool = false
 
-#func _on_wall_area_body_entered(body: Node2D) -> void:
-	## Player takes damage from walls
-	#hp -= 1
-	#if hp == 0:
-		## Change to game over scene
-		#get_tree().change_scene_to_file("res://assets/scenes/FortuneWheelScene.tscn")
+func _ready() -> void:
+	MusicPlayer.play_track(MusicPlayer.SCARY, -9.0)
+
+func _exit_tree() -> void:
+	MusicPlayer.stop_track(2.0)
 
 func _on_exit_area_body_entered(body: CharacterBody2D) -> void:
 	if jumpscare_active:
