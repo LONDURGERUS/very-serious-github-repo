@@ -1,16 +1,39 @@
-[gd_scene format=3 uid="uid://b1y8jb2ie62s0"]
+[gd_scene format=3 uid="uid://cgbg24wmskti1"]
 
 [ext_resource type="Script" uid="uid://ca7ugi6emcwu" path="res://src/scripts/final_boss.gd" id="1_6ag57"]
 [ext_resource type="Script" uid="uid://d2qode13dvwob" path="res://src/scripts/question.gd" id="2_k525x"]
 
 [sub_resource type="Resource" id="Resource_6ag57"]
 script = ExtResource("2_k525x")
-question = "What is your name?"
-option_a = "max"
-option_b = "divid"
-option_c = "skf"
-option_d = "bk"
+question = "What is 1+ 1?"
+option_a = "2"
+option_b = "5"
+option_c = "11"
+option_d = "20"
 metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="Resource" id="Resource_k525x"]
+script = ExtResource("2_k525x")
+question = "How many humps does a camel have?"
+option_a = "One"
+option_b = "Two"
+option_c = "Three, if it's pregnant with twins"
+option_d = "Camels are a government myth"
+answer = 2
+metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="Resource" id="Resource_3wob3"]
+script = ExtResource("2_k525x")
+question = "Which ocean is the largest and deepest on Earth?"
+option_a = "Atlantic Ocean"
+option_b = "Indian Ocean"
+option_c = "Pacific Ocean"
+option_d = "Arctic Ocean"
+answer = 2
+metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_loflm"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oag77"]
 bg_color = Color(0.6906835, 0.15478319, 0, 1)
@@ -38,7 +61,7 @@ boss_max_health = 100
 player_max_health = 10
 boss_damage = 1
 player_damage = 10
-questions = Array[ExtResource("2_k525x")]([SubResource("Resource_6ag57")])
+questions = Array[ExtResource("2_k525x")]([SubResource("Resource_6ag57"), SubResource("Resource_k525x"), SubResource("Resource_3wob3")])
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1195852189]
 layout_mode = 1
@@ -71,16 +94,20 @@ layout_mode = 2
 [node name="OptionC" type="Button" parent="Options/VBoxContainer2" unique_id=1841641238]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+layout_direction = 2
 focus_neighbor_left = NodePath("../../VBoxContainer/OptionA")
 focus_neighbor_bottom = NodePath("../OptionD")
 text = "c"
+alignment = 0
 
 [node name="OptionD" type="Button" parent="Options/VBoxContainer2" unique_id=794941133]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+layout_direction = 2
 focus_neighbor_left = NodePath("../../VBoxContainer/OptionB")
 focus_neighbor_top = NodePath("../OptionC")
 text = "d"
+alignment = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Options" unique_id=2066377264]
 layout_mode = 2
@@ -88,18 +115,23 @@ layout_mode = 2
 [node name="OptionA" type="Button" parent="Options/VBoxContainer" unique_id=653235471]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+layout_direction = 2
 focus_neighbor_right = NodePath("../../VBoxContainer2/OptionC")
 focus_neighbor_bottom = NodePath("../OptionB")
 text = "a"
+alignment = 0
 
 [node name="OptionB" type="Button" parent="Options/VBoxContainer" unique_id=1667687650]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+layout_direction = 2
 focus_neighbor_top = NodePath("../OptionA")
 focus_neighbor_right = NodePath("../../VBoxContainer2/OptionD")
 text = "b"
+alignment = 0
 
 [node name="QuestionLabel" type="Label" parent="." unique_id=1699864311]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -112,6 +144,11 @@ offset_right = 0.5
 offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -100)
+theme_override_styles/normal = SubResource("StyleBoxFlat_loflm")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BossHealthBar" type="ProgressBar" parent="." unique_id=1510013361]
 layout_mode = 1
