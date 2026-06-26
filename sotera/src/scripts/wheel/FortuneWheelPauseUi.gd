@@ -59,7 +59,9 @@ func show_pause() -> void:
 # override default behavior of super class
 func action() -> void:
 	# action_open_curtains()
+	# spam SPACE (space key is defined in other file) -> to open/close curtains
 	if curtains.closed(): curtains.open_full()
+	elif curtains.opened(): curtains.close_full()
 
 func hide_pause() -> void:
 	var skip: bool = _state == PauseBoxState.DISAPPEARING || _state == PauseBoxState.HIDDEN
