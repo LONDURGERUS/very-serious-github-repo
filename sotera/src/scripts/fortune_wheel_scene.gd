@@ -33,6 +33,7 @@ func _ready() -> void:
 	curtains.open_full()
 	MusicPlayer.play_track(MusicPlayer.STAGE_MUSIC, 0.1, 0.0, -7.5)
 	dialogue.start_next_dialog()
+	dialogue.show()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	if Globals.Total_contracts > 0:
@@ -54,6 +55,7 @@ func check_curtains_closed() -> void:
 	
 func _exit_tree() -> void:
 	MusicPlayer.stop_track(2.0)
+
 
 func update_game_over_hand_up(delta: float) -> void:
 	time = min(time + delta, max_time)
@@ -100,3 +102,9 @@ func start_game_over() -> void:
 func _input(e: InputEvent) -> void:
 	if e is InputEventKey and !e.pressed and e.keycode == KEY_M:
 		start_game_over()
+
+func _on_dialogue_speech_ended() -> void:
+	dialogue.hide()
+	if Globals.Total_contracts == 3:
+		Events.change_level("res://assets/scenes/FinalBoss.tscn")
+
