@@ -20,7 +20,7 @@ var max_time: float
 @export var menu_game_over_mode: String
 # ------------------ jumpscare params --------------------
 
-enum GameState{
+enum GameState {
 	NORMAL, # normal state
 	GAME_OVER_FLICK_DELAY, GAME_OVER_HAND_UP, # only happens at game over: GAME_OVER_FLICK_DELAY -> GAME_OVER_HAND_UP
 	GAME_OVER_CURTAINS_CLOSE, GAME_OVER
@@ -31,9 +31,10 @@ var _game_state: GameState = GameState.NORMAL
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	curtains.open_full()
-	MusicPlayer.play_track(MusicPlayer.STAGE_MUSIC, 0.1, 0.0, -7.5)
-	dialogue.start_next_dialog()
-	dialogue.show()
+	if Globals.Lives != 0:
+		MusicPlayer.play_track(MusicPlayer.STAGE_MUSIC, 0.1, 0.0, -7.5)
+		dialogue.start_next_dialog()
+		dialogue.show()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	if Globals.Total_contracts > 0:
@@ -81,7 +82,6 @@ func go_rise_hand() -> void:
 	
 	jumpscare.start_hand_rise()
 	_game_state = GameState.GAME_OVER_HAND_UP
-	
 	
 	
 func start_game_over() -> void:
