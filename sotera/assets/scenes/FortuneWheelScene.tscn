@@ -53,10 +53,10 @@ texture = ExtResource("2_fe3tk")
 metadata/_edit_lock_ = true
 
 [node name="BG2" type="Sprite2D" parent="World/BG" unique_id=481166884]
+visible = false
 position = Vector2(935, 508)
-scale = Vector2(6.9375, 6.9055557)
+scale = Vector2(6.9375, 9.105556)
 texture = ExtResource("2_ybih4")
-metadata/_edit_lock_ = true
 
 [node name="Audience" type="Node2D" parent="World" unique_id=1246452229]
 visible = false
@@ -100,9 +100,8 @@ texture = ExtResource("10_jkhbp")
 
 [node name="Stage" type="Sprite2D" parent="World/Stage" unique_id=969645194]
 position = Vector2(960.0001, 544)
-scale = Vector2(6.0027785, 6.0027785)
+scale = Vector2(6.99302, 7.8819404)
 texture = ExtResource("1_cooqm")
-metadata/_edit_lock_ = true
 
 [node name="Jumpscare" parent="World/Stage" unique_id=1559867996 instance=ExtResource("11_byliy")]
 preview_animation = "Hand Up"
