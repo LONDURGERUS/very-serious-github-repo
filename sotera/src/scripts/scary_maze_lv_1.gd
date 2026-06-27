@@ -79,7 +79,9 @@ func trigger_jumpscare():
 	
 	# Damage
 	Events.lose_life.emit()
-	
+	if Globals.Lives <= 0:
+		return
+		
 	# Reset player state and level
 	player.visible = true
 	player.process_mode = Node.PROCESS_MODE_INHERIT
