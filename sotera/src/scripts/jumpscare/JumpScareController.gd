@@ -46,7 +46,7 @@ func _check_go_to_idle() -> void:
 func _check_stop_jumpscare() -> void:
 	# check if track of jumpscare is completed -> then turn off
 	var track: SpineTrackEntry = anime_state.get_track(TRACK_ID)
-	if track.is_complete(): _go_hand_idle()
+	if track.is_complete(): stop_jumpscare()
 
 
 func _go_hand_idle() -> void:
@@ -94,9 +94,16 @@ func stop_jumpscare() -> void:
 	_state = JumpscareControllerState.HIDDEN
 	jumpscare_finished.emit()
 	
+func hide_visibility() -> void:
+	toggle_body() # ugly fast fix
+	_state = JumpscareControllerState.HIDDEN
+	
+func toggle_body() -> void:
+	anime_state.set_animation(JumpscareAnimationConfig.TOGGLE_TO_ONLY_HAND_RISE_VISIBLE.track(), false, 1)
+	
 func start_hand_rise() -> void:
 	_set_animation(JumpscareType.HAND_RISE)
-	#anime_state.set_animation(JumpscareAnimationConfig.TOGGLE_TO_ONLY_HAND_RISE_VISIBLE.track(), false, 1)
+	toggle_body()
 	
 	visible = true
 	_state = JumpscareControllerState.GAME_OVER_HAND_RISE

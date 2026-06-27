@@ -48,7 +48,7 @@ func _process(delta: float) -> void:
 
 func check_curtains_closed() -> void:
 	if !curtains.closed(): return
-	
+	jumpscare.hide_visibility()
 	Events.change_level(menu_game_over_mode)
 	_game_state = GameState.GAME_OVER
 	
@@ -110,4 +110,3 @@ func _on_dialogue_speech_ended() -> void:
 	if Globals.Total_contracts == 3:
 		print("lets change to final boss")
 		Events.change_level("res://assets/scenes/FinalBoss.tscn")
-
